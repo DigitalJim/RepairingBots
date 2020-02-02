@@ -173,8 +173,9 @@ MonoBehaviour:
   projectile: {fileID: 4693507569833540404, guid: 6dc92ed693854b849884508bd44df703,
     type: 3}
   muzzle: {fileID: 2066380582617019277}
-  fireDelay: 0.1
-  regenPerSecond: 3
+  fireDelay: 0.01
+  regenPerSecond: 8
+  regenPerSecondNonFiring: 12
 --- !u!1 &2915719620621394506
 GameObject:
   m_ObjectHideFlags: 0

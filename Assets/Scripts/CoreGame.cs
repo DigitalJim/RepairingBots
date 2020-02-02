@@ -60,12 +60,18 @@ public class CoreGame : MonoBehaviour
     
     Wave[] waves =
     {
-        //new Wave(.25f, 1,       new int[]{ 60/4,  6 }),
-        //new Wave(.5f, 1.5f,    new int[]{ 85 / 4,  11 }),
-        //new Wave(1.0f, 2.5f,    new int[]{ 187 / 4, 23 }),
-        new Wave(1.25f, 5f,      new int[]{ 262 / 4, 38 }),
-        new Wave(1.5f, 6.5f,    new int[]{ 325 / 4, 65 }),
-        new Wave(1.75f, 14f,    new int[]{ 1000 / 4, 65 }),
+        new Wave(.25f, 1f/2f,       new int[]{ 60/8,  6/2 }),
+        new Wave(.5f, 1.5f/2f,    new int[]{ 85/8,  11/2 }),
+        new Wave(1.0f, 2.5f/2f,    new int[]{ 187/8, 23/2 }),
+        new Wave(1.25f, 5f/2f,      new int[]{ 262/8, 38/2 }),
+        new Wave(1.5f, 6.5f/2f,    new int[]{ 325/8, 65/2 }),
+        new Wave(1.75f, 8f/2f,    new int[]{ 700/8, 65/2 }),
+        new Wave(1.75f, 9.5f/2f,    new int[]{ 700/8, 65/2 }),
+        new Wave(1.75f, 11f/2f,    new int[]{ 700/8, 65/2 }),
+        new Wave(1.75f, 12.5f/2f,    new int[]{ 700/8, 65/2 }),
+        new Wave(1.75f, 14f/2f,    new int[]{ 700/8, 65/2 }),
+        new Wave(1.75f, 15.5f/2f,    new int[]{ 700/8, 65/2 }),
+        new Wave(1.75f, 17f/2f,    new int[]{ 700/8, 65/2 }),
     };
 
     float Rate(int wave)
@@ -113,7 +119,7 @@ public class CoreGame : MonoBehaviour
                     lastSpawnTime = Time.time;
                     if (enemyPrefabs[enemyType] != null)
                     {
-                        Enemy enemy = Instantiate(enemyPrefabs[enemyType], new Vector3(Random.value, 0, Random.value), default);
+                        Enemy enemy = Instantiate(enemyPrefabs[enemyType], new Vector3(Random.value, 0, Random.value*4), default);
                         enemy.transform.localScale = enemyPrefabs[enemyType].transform.localScale;
                     }
                 }

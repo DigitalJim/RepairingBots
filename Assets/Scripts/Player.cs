@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
     public float fireDelay = .0f;
 
     public float regenPerSecond = 1f;
+    public float regenPerSecondNonFiring = 2f;
+
+    public float RegenPerSecond => Input.GetMouseButton(0) ? regenPerSecond : regenPerSecondNonFiring;
 
     float lastFired;
 
@@ -28,7 +31,7 @@ public class Player : MonoBehaviour
     float shots;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Ray cursorRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (groundPlane.Raycast(cursorRay, out float dist))
@@ -36,14 +39,14 @@ public class Player : MonoBehaviour
             transform.LookAt(cursorRay.GetPoint(dist));
         }
 
-        shots = Mathf.Clamp(shots + Time.deltaTime * regenPerSecond, 0, maxShots);
+        shots = Mathf.Clamp(shots + Time.deltaTime * RegenPerSecond, 0, maxShots);
 
         if (Input.GetMouseButton(0) && lastFired + fireDelay < Time.time && shots>=1)
         {
             shots -= 1;
             lastFired = Time.time;
             Rigidbody newProjectile = Instantiate<Rigidbody>(projectile, muzzle.position, default);
-            newProjectile.velocity = muzzle.forward * 4;
+            newProjectile.velocity = muzzle.forward * 8;
         }
 
     }
