@@ -5327,7 +5327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f610cc1c186f17742be5e13cd2c81421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 2
   healthbar: {fileID: 82732703458220398}
   healingTickDelay: 1
   healingPerSecond: 1
