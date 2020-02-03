@@ -119,7 +119,7 @@ public class CoreGame : MonoBehaviour
                     lastSpawnTime = Time.time;
                     if (enemyPrefabs[enemyType] != null)
                     {
-                        Enemy enemy = Instantiate(enemyPrefabs[enemyType], new Vector3(Random.value, 0, Random.value*4), default);
+                        Enemy enemy = Instantiate(enemyPrefabs[enemyType], new Vector3(Random.value, 0, Random.value*3), default);
                         enemy.transform.localScale = enemyPrefabs[enemyType].transform.localScale;
                     }
                 }
