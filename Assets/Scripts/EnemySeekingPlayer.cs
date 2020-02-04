@@ -15,6 +15,11 @@ public class EnemySeekingPlayer : MonoBehaviour
     void Update()
     {
         enemy.enemyMove.enabled = true;
-        enemy.enemyMove.goalLocation = EnemyGoal.instance.transform.position;
+
+        //getting null reference error on EnemyGoal.instance here -joeedh
+        if (EnemyGoal.instance != null)
+        {
+            enemy.enemyMove.goalLocation = EnemyGoal.instance.transform.position;
+        }
     }
 }
