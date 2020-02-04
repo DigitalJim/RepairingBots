@@ -14,12 +14,7 @@ public class EnemySeekingPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemy.enemyMove.enabled = true;
-
-        //getting null reference error on EnemyGoal.instance here -joeedh
-        if (EnemyGoal.instance != null)
-        {
-            enemy.enemyMove.goalLocation = EnemyGoal.instance.transform.position;
-        }
+        enemy.enemyMove.doneMoving = false;
+        enemy.enemyMove.goalLocation = EnemyGoal.instance.transform.position;
     }
 }

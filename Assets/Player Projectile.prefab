@@ -124,10 +124,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bb88842d619ccf43b84b80146908fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 5
+  lifeMod: 2
+  lifetime: 2
   rigidbody: {fileID: 4693507569833540404}
   deathEffect: {fileID: 4324481747166896655, guid: db251ffbf44d17148931415888453809,
     type: 3}
+  particleSystem: {fileID: 0}
 --- !u!1 &8928035057600020378
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class PlayerProjectile : MonoBehaviour
 {
-    public float lifeMod = 2;
-    public float lifetime = 5;
+    public float lifeMod = 1;
+    public float lifetime = 1;
     public Rigidbody rigidbody;
 
     public Transform deathEffect;
 
     private Vector3 initalSize;
     private float birthTime;
+    public ParticleSystem particleSystem;
 
-    public float GetLifeRemaining() =>  (1 - (Time.time - birthTime) / lifetime) * lifeMod;
+    public float GetLifeRemaining() =>  Mathf.Clamp((1 - (Time.time - birthTime) / lifetime) * lifeMod,0, 999999);
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,11 @@ public class PlayerProjectile : MonoBehaviour
         }
         else
         {
+            if (particleSystem != null)
+            {
+                particleSystem.transform.parent = null;
+                Destroy(particleSystem.gameObject, 1);
+            }
             Destroy(gameObject);
         }
     }

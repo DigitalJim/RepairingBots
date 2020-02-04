@@ -13,11 +13,11 @@ public class EnemySeekingHeals : MonoBehaviour
         if(enemy.isHealing)
         {
 
-            enemy.enemyMove.enabled = false;
+            enemy.enemyMove.doneMoving = true;
         }
         else
         {
-            enemy.enemyMove.enabled = true;
+            enemy.enemyMove.doneMoving = false;
             enemy.enemyMove.goalLocation = RepairArea.repairAreas.Skip(Random.Range(0, RepairArea.repairAreas.Count)).First().transform.position;
         }
     }
