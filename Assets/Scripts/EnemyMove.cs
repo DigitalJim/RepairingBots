@@ -24,6 +24,7 @@ public class EnemyMove : MonoBehaviour
 
     private void FixedUpdate()
     {
+        /*rotation is now derived from velocity - joeedh*/
         //transform.LookAt(goalLocation);
 
         Vector3 goalVector = goalLocation - transform.position;
@@ -57,6 +58,7 @@ public class EnemyMove : MonoBehaviour
             rigidbody.velocity = Vector3.Lerp(velo, rigidbody.velocity, .9f);
         }
 
+        //derive rotation from velocity
         if (new Vector2(rigidbody.velocity.x, rigidbody.velocity.z).magnitude > 0.001)
         {
             float th = (float)System.Math.Atan2(rigidbody.velocity.x, rigidbody.velocity.z);
